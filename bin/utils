@@ -11,7 +11,7 @@ cleanup() {
 
 # Virtualenv wrapper.
 function virtualenv (){
-  python "$ROOT_DIR/vendor/virtualenv-1.8.4/virtualenv.py" "$@"
+  python "$ROOT_DIR/vendor/virtualenv-1.11.6/virtualenv.py" "$@"
 }
 
 # Buildpack Steps.
