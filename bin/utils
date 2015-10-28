@@ -10,8 +10,9 @@ cleanup() {
 }
 
 # Virtualenv wrapper.
-function virtualenv (){
-  python "$ROOT_DIR/vendor/virtualenv-1.11.6/virtualenv.py" "$@"
+function virtualenv () {
+  VIRTUALENV=$(eval 'echo "$ROOT_DIR/vendor/virtualenv-"*')
+  PYTHONPATH=$VIRTUALENV python -m virtualenv "$@"
 }
 
 # Buildpack Steps.
