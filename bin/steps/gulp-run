@@ -5,7 +5,7 @@ NODE_VERSION="5.0.0"
 # Run production task with Gulp.
 puts-step "Running 'production' task with gulp"
 
-if [ -f $BUILD_DIR/gulpfile.js ]; then
+if [ -f $BUILD_DIR/gulpfile.js ] || [ -f $BUILD_DIR/gulpfile.babel.js ]; then
     echo "-----> Found gulpfile"
 
     # Install node.
