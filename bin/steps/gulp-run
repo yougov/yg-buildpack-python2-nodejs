@@ -1,6 +1,6 @@
 BUILD_DIR=$1
 
-NODE_VERSION="0.10.30"
+NODE_VERSION="5.0.0"
 
 # Run production task with Gulp.
 puts-step "Running 'production' task with gulp"
@@ -30,3 +30,5 @@ else
 fi
 
 echo
+
+http://s3pository.heroku.com/node/v5.0.0/node-v5.0.0-linux-x64.tar.gz
