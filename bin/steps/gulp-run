@@ -30,5 +30,3 @@ else
 fi
 
 echo
-
-http://s3pository.heroku.com/node/v5.0.0/node-v5.0.0-linux-x64.tar.gz
