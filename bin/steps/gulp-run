@@ -17,7 +17,7 @@ if [ -f $BUILD_DIR/gulpfile.js ] || [ -f $BUILD_DIR/gulpfile.babel.js ]; then
 
     # Install node.
     echo "-----> Installing node.js and npm (version $NODE_VERSION)"
-    NODE_URL="http://s3pository.heroku.com/node/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.gz"
+    NODE_URL="https://s3pository.heroku.com/node/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.gz"
     curl $NODE_URL -s -o - | tar xzf - -C $BUILD_DIR
     mkdir -p $BUILD_DIR/vendor
     mv $BUILD_DIR/node-v$NODE_VERSION-linux-x64 $BUILD_DIR/vendor/node
