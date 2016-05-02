@@ -1,8 +1,13 @@
 #!/usr/bin/env bash
 
 BUILD_DIR=$1
+BP_DIR=$(cd $(dirname $0); cd ..; pwd)
 
-NODE_VERSION="5.0.0"
+# Look in package.json's engines.node field for a semver range
+SEMVER_RANGE=$(cat $BUILD_DIR/package.json | $BP_DIR/vendor/jq -r .engines.node)
+
+# Resolve node version using semver.io
+NODE_VERSION=$(curl --silent --get --data-urlencode "range=${SEMVER_RANGE}" https://semver.io/node/resolve)
 
 # Run production task with Gulp.
 puts-step "Running 'production' task with gulp"
