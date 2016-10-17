@@ -151,8 +151,8 @@ if [ "$NAME" = "Python/Django" ]; then
   source $BIN_DIR/steps/django
 fi
 
-# Gulp production task.
-source $BIN_DIR/steps/gulp-run $BUILD_DIR
+# Node.js production task.
+source $BIN_DIR/steps/nodejs-run $BUILD_DIR
 
 # Make Virtualenv's paths relative for portability.
 set +e
