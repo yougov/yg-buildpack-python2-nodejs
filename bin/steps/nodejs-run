@@ -35,7 +35,7 @@ else
     mkdir -p $BUILD_DIR/vendor
     mv $BUILD_DIR/node-v$NODE_VERSION-linux-x64 $BUILD_DIR/vendor/node
     chmod +x $BUILD_DIR/vendor/node/bin/*
-    PATH=$PATH:$BUILD_DIR/vendor/node/bin
+    PATH=$BUILD_DIR/vendor/node/bin:$PATH
 
     echo "-----> Running 'npm run vr-build'"
     npm run vr-build
