@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Quit if an uninitialized variable is used
+set -u
+
 BUILD_DIR=$1
 BP_DIR="$(cd $(dirname $0); cd ..; pwd)"
 
