@@ -20,7 +20,7 @@ NPM_SEMVER_RANGE=$(cat $BUILD_DIR/package.json | $BP_DIR/vendor/jq -r .engines.n
 # Look in package.json's engines.node field for the vr-build script
 VR_BUILD_SCRIPT="$(cat $BUILD_DIR/package.json | $BP_DIR/vendor/jq -r '.scripts."vr-build"')"
 
-# Resolve node version using semver.io
+# Resolve Node.js version using semver.io
 NODE_VERSION="$(curl --silent --get --data-urlencode "range=${SEMVER_RANGE}" https://semver.io/node/resolve)"
 
 # Run the vr-build npm script.
@@ -42,7 +42,10 @@ else
     PATH=$BUILD_DIR/vendor/node/bin:$PATH
 
     if [ ! -z "$NPM_SEMVER_RANGE" ] && [ "$NPM_SEMVER_RANGE" != "null" ]; then
-        npm --global install npm@"$NPM_SEMVER_RANGE"
+        # Resolve npm version using semver.io
+        NPM_VERSION="$(curl --silent --get --data-urlencode "range=${NPM_SEMVER_RANGE}" https://semver.io/npm/resolve)"
+        echo "-----> Installing npm (version $NPM_VERSION)"
+        npm --global install npm@"$NPM_VERSION"
     fi
 
     echo "-----> Running 'npm run vr-build'"
