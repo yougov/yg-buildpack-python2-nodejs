@@ -67,6 +67,8 @@ export PIP_DOWNLOAD_CACHE BUILD_DIR CACHE_DIR BIN_DIR PROFILE_PATH
 # Syntax sugar.
 source $BIN_DIR/utils
 
+puts-step "Loaded Syntax Sugar"
+
 # ## Build Time
 #
 
