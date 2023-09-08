@@ -15,7 +15,7 @@
 BUILD_DIR=$1
 
 if [ ! -f $BUILD_DIR/requirements.txt ] && [ ! -f $BUILD_DIR/setup.py ]; then
-   puts-step "No Python Requirements or Setup Found"
+   echo "Python not found"
 fi
 
 # `Python/Django` if `**/settings.py` is present.
