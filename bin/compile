@@ -32,7 +32,6 @@
 # Fail fast and fail hard.
 set -eo pipefail
 
-puts-step "Let's compile"
 
 # Prepend proper path for virtualenv hackery. This will be deprecated soon.
 export PATH=:/usr/local/bin:$PATH
@@ -82,6 +81,8 @@ if [ ! -f requirements.txt ]; then
   puts-step "No requirements.txt provided; assuming dist package."
   echo "-e ." > requirements.txt
 fi
+
+puts-step "Let's Compile"
 
 # ### The Cache
 mkdir -p $CACHE_DIR
