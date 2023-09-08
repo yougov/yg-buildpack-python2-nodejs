@@ -36,7 +36,7 @@ set -eo pipefail
 # Prepend proper path for virtualenv hackery. This will be deprecated soon.
 export PATH=:/usr/local/bin:$PATH
 
-failme
+
 
 # Paths.
 BIN_DIR=$(cd $(dirname $0); pwd) # absolute path
@@ -46,6 +46,8 @@ CACHE_DIR=$2
 
 # The detected application type (`Python`|`Python/Django`).
 NAME=$($BIN_DIR/detect $BUILD_DIR)
+
+failme
 
 # Where to store the pip download cache.
 CACHED_DIRS=".heroku"
