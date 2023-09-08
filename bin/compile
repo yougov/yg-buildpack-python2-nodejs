@@ -47,8 +47,6 @@ CACHE_DIR=$2
 # The detected application type (`Python`|`Python/Django`).
 NAME=$($BIN_DIR/detect $BUILD_DIR)
 
-failme
-
 # Where to store the pip download cache.
 CACHED_DIRS=".heroku"
 PIP_DOWNLOAD_CACHE=${PIP_DOWNLOAD_CACHE:-$CACHE_DIR/pip_downloads}
@@ -62,7 +60,6 @@ PROFILE_PATH="$BUILD_DIR/.profile.d/python.sh"
 PYTHON_VERSION="2.7.2"
 PYTHON_EXE="python2.7"
 
-thisdoesnotwork
 
 # Sanitizing environment variables.
 unset GIT_DIR PYTHONHOME PYTHONPATH LD_LIBRARY_PATH LIBRARY_PATH
