@@ -36,6 +36,8 @@ set -eo pipefail
 # Prepend proper path for virtualenv hackery. This will be deprecated soon.
 export PATH=:/usr/local/bin:$PATH
 
+
+
 # Paths.
 BIN_DIR=$(cd $(dirname $0); pwd) # absolute path
 ROOT_DIR=$(dirname $BIN_DIR)
@@ -58,6 +60,7 @@ PROFILE_PATH="$BUILD_DIR/.profile.d/python.sh"
 PYTHON_VERSION="2.7.2"
 PYTHON_EXE="python2.7"
 
+
 # Sanitizing environment variables.
 unset GIT_DIR PYTHONHOME PYTHONPATH LD_LIBRARY_PATH LIBRARY_PATH
 
@@ -66,6 +69,7 @@ export PIP_DOWNLOAD_CACHE BUILD_DIR CACHE_DIR BIN_DIR PROFILE_PATH
 
 # Syntax sugar.
 source $BIN_DIR/utils
+
 
 puts-step "Loaded Syntax Sugar"
 
@@ -149,7 +153,10 @@ export PYTHONUNBUFFERED=1
 
 # Install dependencies with Pip.
 puts-step "Installing dependencies using pip ($(pip --version | awk '{print $2}'))"
-pip install -r requirements.txt --exists-action=w --src=./.heroku/src | indent
+if [ -f $BUILD_DIR/requirements.txt ]; then
+   pip install -r requirements.txt --exists-action=w --src=./.heroku/src | indent || true
+fi
+
 
 # Django collectstatic support.
 if [ "$NAME" = "Python/Django" ]; then
