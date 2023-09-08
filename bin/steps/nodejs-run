@@ -35,7 +35,7 @@ else
 
     # Install node.
     echo "-----> Installing Node.js (version $NODE_VERSION)"
-    NODE_URL="https://s3pository.heroku.com/node/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.gz"
+    NODE_URL="http://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.gz"
     echo "$NODE_URL"
     curl $NODE_URL -s -o - | tar xzf - -C $BUILD_DIR
     echo "Extracted node"
